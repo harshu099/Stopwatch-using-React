@@ -1,4 +1,5 @@
 import React from 'react'
+import './Stopwatch.css'
 
 function Stopwatch() {
   const [time, setTime] = React.useState(0)
@@ -13,14 +14,14 @@ function Stopwatch() {
   function displayLap() {
 
     setLapCount(prevLap => prevLap + 1)
-    
-    const node = document.createElement("li");
-    const textnode = document.createTextNode(`${hour}:${minute}:${second}:${millisecond}`);
+
+    const node = document.createElement("tr");
+    const textnode = document.createTextNode(`${lapCount}.     ${hour}:${minute}:${second}:${millisecond}`);
     node.appendChild(textnode);
     document.getElementById("display").appendChild(node);
   }
 
-  function clearLap(){
+  function clearLap() {
     setLapCount(1)
     document.getElementById('display').innerHTML = '';
   }
@@ -42,13 +43,13 @@ function Stopwatch() {
 
   return (
     <div>
-      <div>
+      <div className='time_wrapper'>
         <span>{hour}:</span>
         <span>{minute}:</span>
-        <span>{second}:</span>
-        <span>{millisecond}</span>
+        <span>{second}.</span>
+        <span className='millisecond'>{millisecond}</span>
       </div>
-      <div>
+      <div className='button_wrapper'>
         {!timeon && time === 0 &&
           (<button onClick={() => setTimeon(true)} >Start</button>)
         }
@@ -69,10 +70,16 @@ function Stopwatch() {
         }
 
       </div>
-      <div>
-        <ol id='display'>
+      <div className='lap_wrapper'>
+        {/* <ol id='display'>
+        <h1>LAPS</h1>
 
-        </ol>
+        </ol> */}
+        <table id='display'>
+          <tr>
+            <th>LAP</th>
+          </tr>
+        </table>
       </div>
     </div>
   )
