@@ -1,0 +1,15 @@
+.App {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.heading{
+    font-size: 50px;
+    font-weight: bolder;
+    font-family: Georgia, serif;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #053d1e;
+}
